@@ -1,0 +1,147 @@
+{% extends "layout.html" %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="border">
+                <p>
+                    Welcome to your homepage! <br>
+                    Here you can evaluate the balance of your current portfolio or maybe try out the distribution of a
+                    new portfolio.
+                    Add the stocks you whant to evaluate via the form. The stocks will appear in the tabel below and in
+                    the pie chart.
+                </p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="addshares-container">
+                <form role="form">
+                    <div class="form-group input-container">
+                        <input id="symbol_input" autocomplete="on" autofocus class="form-control" name="symbol"
+                            placeholder="Symbol" type="text" pattern="[A-Z]" value="" required>
+                    </div>
+                    <div class="form-group input-container">
+                        <input id="shares_input" class="form-control" name="shares" placeholder="Shares" type="number" required autofocus>
+                    </div>
+                    <button class="btn btn-dark" id="sumbit_btn" type="button" onclick="data_handler('new_company')">Add
+                        company</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div id="user_table" data-user='{{ user_data|tojson }}' data-value='{{ total_value|tojson }}'>
+                {% if user_data|length > 0 %}
+                <table id="user_data_table" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-dark">Symbol</th>
+                            <th scope="col" class="text-dark">Company</th>
+                            <th scope="col" class="text-dark">Shares</th>
+                            <th scope="col" class="text-dark">Current value</th>
+                            <th scope="col" class="text-dark">Total value</th>
+                            <th scope="col" class="text-dark">Industry</th>
+                            <th scope="col" class="text-dark">Sector</th>
+                            <th scope="col" class="text-dark">Add shares</th>
+                            <th scope="col" class="text-dark">Remove shares</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for holding in user_data %}
+                        <tr>
+                            <td scope="row" class="text-dark">{{ holding["symbol"] }}</td>
+                            <td>{{ holding["company_name"] }}</td>
+                            <td>{{ holding["shares"] }}</td>
+                            <td><span>&#36;</span>{{ holding["current_stock_value"] }}</td>
+                            <td><span>&#36;</span>{{ holding["total_value"] }}</td>
+                            <td>{{ holding["industry"] }}</td>
+                            <td>{{ holding["sector"] }}</td>
+                            <td><button class="btn btn-success" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#my_modal" data-bs-symbol="{{ holding.symbol }}"
+                                    data-bs-action="Add">Add</button></td>
+                            <td><button class="btn btn-danger" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#my_modal" data-bs-symbol="{{ holding.symbol }}"
+                                    data-bs-action="Remove">Remove</button></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <table id="user_data_table" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-dark">Symbol</th>
+                            <th scope="col" class="text-dark">Company</th>
+                            <th scope="col" class="text-dark">Shares</th>
+                            <th scope="col" class="text-dark">Current value</th>
+                            <th scope="col" class="text-dark">Total value</th>
+                            <th scope="col" class="text-dark">Industry</th>
+                            <th scope="col" class="text-dark">Sector</th>
+                            <th scope="col" class="text-dark">Add shares</th>
+                            <th scope="col" class="text-dark">Remove shares</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                {% endif %}
+                <div class="modal fade bd-add-modal-sm" id="my_modal" tabindex="-1" aria-labelledby="mySmallModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="action" title='set_by_jQuery'>New message</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p id=symbol title='set_by_jQuery'>New message</p>
+                                <form>
+                                    <div class="form-group">
+                                        <input id="share_edit_input" class="form-control" name="shares"
+                                            placeholder="Shares" type="number" required autofocus>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-dark" type="button" id="modal_btn"
+                                    onclick="data_handler('edit_share')" data-bs-dismiss="modal">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sector_chart" class="col">
+            <div id="piechart" class="piechart"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="border">
+                <b>All possible different sectors:</b>
+                <p>
+                    Process Industries, Consumer Durables, Manufacturing, Arts, Entertainment, and Recreation,
+                    Health Care and Social Assistance, Electronic Technology, Wholesale Trade, Communications,
+                    Transportation, Miscellaneous, Agriculture, Forestry, Fishing and Hunting, Educational Services,
+                    Professional, Scientific, and Technical Services, Management of Companies and Enterprises,
+                    Health Technology, Finance and Insurance, Retail Trade, Public Administration, Commercial Services, Utilities,
+                    Distribution Services, Non-Energy Minerals, Administrative and Support and Waste Management and Remediation Services,
+                    Accommodation and Food Services, Mining, Quarrying, and Oil and Gas Extraction, Real Estate and Rental and Leasing,
+                    Producer Manufacturing, Energy Minerals, Information, Consumer Non-Durables, Transportation and Warehousing,
+                    Other Services (except Public Administration), Finance, Health Services, Government, Construction,
+                    Industrial Services, Technology Services, Consumer Services.
+                </p>
+            </div>
+        </div>
+        <div class="col">
+            <!-- empty col -->
+        </div>
+    </div>
+</div>
+{% endblock %}

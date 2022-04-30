@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block title %}
+About us
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row about-row-container">
+        <div class="col">
+            <h1 class="display-6 text-dark">About this project</h1>
+            <p>
+                The web application, Your Stock Portfolio, is my final project in the course CS50x, Introduction to Computer Science. 
+                <br>I decided to make a web application for two reasons.
+                <ol>
+                    <li>I wanted to learn it better.</li>
+                    <li>Developing front-end was hardest part for me to grasp during the course.</li>
+                </ol>
+                In hindsight, developing a web application one on my own from scratch brought with it a lot of frustration. 
+                However I did learn and I look forward to learning more in this field in the future! 
+                
+                <br> The source code for this project is avalible on github <a href="https://github.com/FannyCentofanti/Your-Stock-Portfolio" class="fa fa-github icon-about"></a>
+            </p>
+        </div>
+        <div class="col">
+            <h1 class="display-6 text-dark">Your Stock Portfolio</h1>
+            <p>
+                The idea of the project came to me by looking at my own stock portfolio and trying to determine the distribution of 
+                different sectors. At the time, the application I used did not have a possibility to show the distribution in 
+                a diagram, thus I decided to create an application for this cause. This application, Your Stock Portfolio, also 
+                gives you the possibility to try out different set-ups for your portfolio. It gives you the possibility to properly 
+                analyze the distribution of the portfolio before buying.
+                <br> Your Stock Portfolio uses data from <a href="https://iexcloud.io/" class="link-about">IEx Cloud.</a>
+            </p>
+        </div>
+    </div>
+    <div class="row about-row-container">
+        <div class="col">
+            <p>
+                I studied the CS50x via <a href="https://www.edx.org/course/introduction-computer-science-harvardx-cs50x" class="link-about">edx.org.</a>
+                <br> A special thanks to all the staff working with CS50x! It really is an amazing course!<br>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+            </p>
+        </div>
+        <div class="col">
+            <!-- write text here -->
+        </div>
+    </div>
+</div>
+{% endblock %}

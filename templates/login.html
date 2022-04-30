@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}
+Log in
+{% endblock %}
+{% block content %}
+<div class="login-container">
+    <form action="/login/" method="post">
+        <div class="form-group input-container">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text" required>
+        </div>
+        <div class="form-group input-container">
+            <input class="form-control" name="password" placeholder="Password" type="password" required>
+        </div>
+        <button class="btn btn-dark" type="submit">Log In</button>
+    </form>
+    {% if error is none %}
+    {% else %}
+    <div class="border">
+        <p> {{ error }} </p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

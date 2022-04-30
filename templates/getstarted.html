@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block title %}
+Get started
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row getstarted-row-container">
+        <div class="col">
+            <h1 class="display-5 text-dark">Get started in 3 simple steps</h1>
+        </div>
+        <div class="col">
+            <!-- emty col -->
+        </div>
+    </div>
+    <div class="row getstarted-row-container">
+        <div class="col">
+            <p class="lead text-dark">1. Register an account.</p>
+        </div>
+        <div class="col">
+            <!-- emty col -->
+        </div>
+    </div>
+    <div class="row getstarted-row-container">
+        <div class="col">
+            <p class="lead text-dark">2. Fill in your stock portfolio and create your information table. </p>
+        </div>
+        <div class="col">
+            <div id="display_table" data-display='{{ display_data|tojson }}' data-displayvalue='{{ total_value_display|tojson }}'>
+                <table id="user_data_table" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-dark">Symbol</th>
+                            <th scope="col" class="text-dark">Company</th>
+                            <th scope="col" class="text-dark">Shares</th>
+                            <th scope="col" class="text-dark">Current value</th>
+                            <th scope="col" class="text-dark">Total value</th>
+                            <th scope="col" class="text-dark">Industry</th>
+                            <th scope="col" class="text-dark">Sector</th>
+                            <th scope="col" class="text-dark">Add shares</th>
+                            <th scope="col" class="text-dark">Remove shares</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for holding in display_data %}
+                        <tr>
+                            <td scope="row" class="text-dark">{{ holding["symbol"] }}</td>
+                            <td>{{ holding["company_name"] }}</td>
+                            <td>{{ holding["shares"] }}</td>
+                            <td><span>&#36;</span>{{ holding["current_stock_value"] }}</td>
+                            <td><span>&#36;</span>{{ holding["total_value"] }}</td>
+                            <td>{{ holding["industry"] }}</td>
+                            <td>{{ holding["sector"] }}</td>
+                            <td><button class="btn btn-success disabled" type="button">Add</button></td>
+                            <td><button class="btn btn-danger disabled" type="button">Remove</button></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row getstarted-row-container">
+        <div class="col">
+            <p class="lead text-dark">3. Analyse the distribution of your stock protfolio.</p>
+        </div>
+        <div class="col">
+            <div id="getstarted-piechart"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

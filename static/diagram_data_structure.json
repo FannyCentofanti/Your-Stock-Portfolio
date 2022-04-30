@@ -1,0 +1,200 @@
+{
+	"industry": [{
+			"name": "Energy",
+			"percent": 0
+		},
+		{
+			"name": "Materials",
+			"percent": 0
+		},
+		{
+			"name": "Industrials",
+			"percent": 0
+		},
+		{
+			"name": "Consumer Discretionary",
+			"percent": 0
+		},
+		{
+			"name": "Consumer Staples",
+			"percent": 0
+		},
+		{
+			"name": "Health Care",
+			"percent": 0
+		},
+		{
+			"name": "Financials",
+			"percent": 0
+		},
+		{
+			"name": "Information Technology",
+			"percent": 0
+		},
+		{
+			"name": "Telecommunication Services",
+			"percent": 0
+		},
+		{
+			"name": "Utilities",
+			"percent": 0
+		}
+	],
+	"sectors": [{
+			"name": "Process Industries",
+			"percent": 0
+		},
+		{
+			"name": "Consumer Durables",
+			"percent": 0
+		},
+		{
+			"name": "Manufacturing",
+			"percent": 0
+		},
+		{
+			"name": "Arts, Entertainment, and Recreation",
+			"percent": 0
+		},
+		{
+			"name": "Health Care and Social Assistance",
+			"percent": 0
+		},
+		{
+			"name": "Electronic Technology",
+			"percent": 0
+		},
+		{
+			"name": "Wholesale Trade",
+			"percent": 0
+		},
+		{
+			"name": "Communications",
+			"percent": 0
+		},
+		{
+			"name": "Transportation",
+			"percent": 0
+		},
+		{
+			"name": "Miscellaneous",
+			"percent": 0
+		},
+		{
+			"name": "Agriculture, Forestry, Fishing and Hunting",
+			"percent": 0
+		},
+		{
+			"name": "Educational Services",
+			"percent": 0
+		},
+		{
+			"name": "Professional, Scientific, and Technical Services",
+			"percent": 0
+		},
+		{
+			"name": "Management of Companies and Enterprises",
+			"percent": 0
+		},
+		{
+			"name": "Health Technology",
+			"percent": 0
+		},
+		{
+			"name": "Finance and Insurance",
+			"percent": 0
+		},
+		{
+			"name": "Retail Trade",
+			"percent": 0
+		},
+		{
+			"name": "Public Administration",
+			"percent": 0
+		},
+		{
+			"name": "Commercial Services",
+			"percent": 0
+		},
+		{
+			"name": "Utilities",
+			"percent": 0
+		},
+		{
+			"name": "Distribution Services",
+			"percent": 0
+		},
+		{
+			"name": "Non-Energy Minerals",
+			"percent": 0
+		},
+		{
+			"name": "Administrative and Support and Waste Management and Remediation Services",
+			"percent": 0
+		},
+		{
+			"name": "Accommodation and Food Services",
+			"percent": 0
+		},
+		{
+			"name": "Mining, Quarrying, and Oil and Gas Extraction",
+			"percent": 0
+		},
+		{
+			"name": "Real Estate and Rental and Leasing",
+			"percent": 0
+		},
+		{
+			"name": "Producer Manufacturing",
+			"percent": 0
+		},
+		{
+			"name": "Energy Minerals",
+			"percent": 0
+		},
+		{
+			"name": "Information",
+			"percent": 0
+		},
+		{
+			"name": "Consumer Non-Durables",
+			"percent": 0
+		},
+		{
+			"name": "Transportation and Warehousing",
+			"percent": 0
+		},
+		{
+			"name": "Other Services (except Public Administration)",
+			"percent": 0
+		},
+		{
+			"name": "Finance",
+			"percent": 0
+		},
+		{
+			"name": "Health Services",
+			"percent": 0
+		},
+		{
+			"name": "Government",
+			"percent": 0
+		},
+		{
+			"name": "Construction",
+			"percent": 0
+		},
+		{
+			"name": "Industrial Services",
+			"percent": 0
+		},
+		{
+			"name": "Technology Services",
+			"percent": 0
+		},
+		{
+			"name": "Consumer Services",
+			"percent": 0
+		}
+	]
+}

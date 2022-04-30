@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}
+Register
+{% endblock %}
+{% block content %}
+<div class="login-container">
+    <form action="/register" method="POST">
+        <div class="form-group input-container">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text" required>
+        </div>
+        <div class="form-group input-container">
+            <input id="password_input" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" name="password" placeholder="Password" type="password" required>
+            <div id="passwordHelpBlock" class="form-text">
+                Your password must be 8-20 characters long, contain lower case letters, upper case letters, numbers and special characters, and must not contain spaces or emoji.
+            </div>
+        </div>
+        <div class="form-group input-container">
+            <input class="form-control" name="confirmation" placeholder="Repeat password" type="password" required>
+        </div>
+        <button id="register_button" class="btn btn-dark" type="submit">Register</button>
+    </form>
+    {% if error is none %}
+    {% else %}
+    <div class="border">
+        <p> {{ error }} </p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

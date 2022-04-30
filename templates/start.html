@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% block title %}
+Your Stock Portfolio
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="border">
+                <p>
+                    By balacing your portfolio you can reduce the risk. There are a number of risks to take in to
+                    account, but if you balance your portfolio based on the number of stocks and the exposure to
+                    different
+                    industry and sectors you are off to a good start!
+                </p>
+                <p>
+                    Your stock portfolio helps you evaluate the balance of your portfolio. Create an account to get
+                    started!
+                </p>
+            </div>
+        </div>
+        <div class="col">
+            <!-- empty col -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div id="display_table" data-display='{{ display_data|tojson }}' data-displayvalue='{{ total_value_display|tojson }}'>
+                <table id="user_data_table" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-dark">Symbol</th>
+                            <th scope="col" class="text-dark">Company</th>
+                            <th scope="col" class="text-dark">Shares</th>
+                            <th scope="col" class="text-dark">Current value</th>
+                            <th scope="col" class="text-dark">Total value</th>
+                            <th scope="col" class="text-dark">Industry</th>
+                            <th scope="col" class="text-dark">Sector</th>
+                            <th scope="col" class="text-dark">Add shares</th>
+                            <th scope="col" class="text-dark">Remove shares</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for holding in display_data %}
+                        <tr>
+                            <td scope="row" class="text-dark">{{ holding["symbol"] }}</td>
+                            <td>{{ holding["company_name"] }}</td>
+                            <td>{{ holding["shares"] }}</td>
+                            <td><span>&#36;</span>{{ holding["current_stock_value"] }}</td>
+                            <td><span>&#36;</span>{{ holding["total_value"] }}</td>
+                            <td>{{ holding["industry"] }}</td>
+                            <td>{{ holding["sector"] }}</td>
+                            <td><button class="btn btn-success disabled" type="button">Add</button></td>
+                            <td><button class="btn btn-danger disabled" type="button">Remove</button></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col">
+            <div id="piechart"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="border">
+                <b>All possible different sectors:</b>
+                <p>
+                    Process Industries, Consumer Durables, Manufacturing, Arts, Entertainment, and Recreation,
+                    Health Care and Social Assistance, Electronic Technology, Wholesale Trade, Communications,
+                    Transportation, Miscellaneous, Agriculture, Forestry, Fishing and Hunting, Educational Services,
+                    Professional, Scientific, and Technical Services, Management of Companies and Enterprises,
+                    Health Technology, Finance and Insurance, Retail Trade, Public Administration, Commercial Services, Utilities,
+                    Distribution Services, Non-Energy Minerals, Administrative and Support and Waste Management and Remediation Services,
+                    Accommodation and Food Services, Mining, Quarrying, and Oil and Gas Extraction, Real Estate and Rental and Leasing,
+                    Producer Manufacturing, Energy Minerals, Information, Consumer Non-Durables, Transportation and Warehousing,
+                    Other Services (except Public Administration), Finance, Health Services, Government, Construction,
+                    Industrial Services, Technology Services, Consumer Services.
+                </p>
+            </div>
+        </div>
+        <div class="col">
+            <!-- empty col -->
+        </div>
+    </div>
+</div>
+{% endblock %}
