@@ -3,9 +3,6 @@
 Your Stock Portfolio is a web application. Its purpose is to give the user a possibility to analyze the balance of a stock portfolio with the aspect of the distribution over different sectors. The user registers for an account and adds stock companies and the number of shares. The application fetches stock data via API from IEx Cloud. The percentage of the value of each sector is calculated and the pie chart with the distribution is drawn. The user has the possibility to add new companies to the stock portfolio and edit the number of shares for companies already in the portfolio.
 The web application is built according to the Flask framework, using python for backend and HTML, CSS and native Javascript for frontend. The database is a PostgreSQL. Stock data is fetched via API from IEx Cloud. <br />
 <br />
-The web application is deployed on Heroku: https://yourstockportfolio.herokuapp.com/ <br />
-Although the deploy to Heroku introduced some issues in the application that could not be mimicked in the developing environment. Sadly, I was not able to fix these issues. It is seen in the user homepage when the stock portfolio is edited. Sometimes the AJAX-request returns an answer with empty data, and I was not able to understand why.
-<br />
 To run the web application locally: <br />
 - Install libraries in requirements.txt.
 - Setup API-key for IEx Cloud.
